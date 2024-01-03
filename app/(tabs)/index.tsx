@@ -1,11 +1,20 @@
 import { Link } from 'expo-router';
-import React from 'react';
-import { View, Text } from 'react-native';
+import { Button, View } from 'react-native';
 
 const Page = () => {
   return (
-    <View>
-      <Link href={'/details'}>Details</Link>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Link href="/details" asChild>
+        <Button title="Open Details Page" />
+      </Link>
+
+      <Link href="/(tabs)/reactnative" asChild>
+        <Button title="Open React Native Page" />
+      </Link>
+
+      <Link href={{ pathname: '/(tabs)/following', params: { refresh: '1' } }} asChild>
+        <Button title="Open with params" />
+      </Link>
     </View>
   );
 };
